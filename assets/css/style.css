@@ -1,0 +1,188 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GENERAL
+   ========================================================================== */
+:root {
+    --bg-principal: #0b0f19;       /* Fondo oscuro profundo moderno */
+    --bg-secundario: #151f32;      /* Fondo de tarjetas y bloques */
+    --acento-brillante: #00d2ff;   /* Azul eléctrico llamativo */
+    --acento-suave: #005f73;       /* Azul intermedio para degradados */
+    --texto-claro: #f8f9fa;        /* Texto principal */
+    --texto-mutado: #94a3b8;       /* Texto secundario/gris */
+    --transicion: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-claro);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Personalización de la barra de desplazamiento (Scrollbar) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-principal);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-secundario);
+    border-radius: 4px;
+    border: 1px solid var(--acento-brillante);
+}
+
+/* ==========================================================================
+   2. NAVEGACIÓN (NAVBAR)
+   ========================================================================== */
+.navbar {
+    background-color: rgba(11, 15, 25, 0.85) !important;
+    backdrop-filter: blur(10px); /* Efecto vidrio esmerilado */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-brand {
+    color: var(--acento-brillante) !important;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: var(--texto-mutado) !important;
+    transition: var(--transicion);
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--acento-brillante) !important;
+}
+
+/* Línea animada debajo de los enlaces del menú */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--acento-brillante);
+    transition: var(--transicion);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. SECCIÓN DE INICIO (HERO) Y SOBRE MÍ
+   ========================================================================== */
+#inicio {
+    background: radial-gradient(circle at top right, var(--acento-suave), transparent 40%), 
+                radial-gradient(circle at bottom left, #0d1b2a, var(--bg-principal)) !important;
+    padding: 100px 0 !important;
+}
+
+#inicio h1 {
+    font-weight: 800;
+    background: linear-gradient(45deg, #ffffff, var(--acento-brillante));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+}
+
+/* ==========================================================================
+   4. TARJETAS Y COMPONENTES (PROYECTOS Y SERVICIOS)
+   ========================================================================== */
+.card {
+    background-color: var(--bg-secundario) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: var(--texto-claro) !important;
+    transition: var(--transicion) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+/* Efecto llamativo al pasar el cursor sobre las tarjetas */
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 210, 255, 0.4) !important;
+    box-shadow: 0 12px 20px rgba(0, 210, 255, 0.1) !important;
+}
+
+.card-title {
+    color: var(--texto-claro);
+}
+
+.text-muted, .card-text {
+    color: var(--texto-mutado) !important;
+}
+
+/* Badges / Etiquetas de tecnologías */
+.badge {
+    background-color: rgba(0, 210, 255, 0.1) !important;
+    color: var(--acento-brillante) !important;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    padding: 6px 12px !important;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   5. BOTONES PERSONALIZADOS
+   ========================================================================== */
+.btn-dark {
+    background-color: var(--acento-brillante) !important;
+    color: var(--bg-principal) !important;
+    border: none !important;
+    font-weight: 600;
+    transition: var(--transicion);
+}
+
+.btn-dark:hover {
+    background-color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+    transform: scale(1.02);
+}
+
+.btn-outline-dark, .btn-outline-primary {
+    color: var(--texto-claro) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transition: var(--transicion);
+}
+
+.btn-outline-dark:hover, .btn-outline-primary:hover {
+    background-color: transparent !important;
+    border-color: var(--acento-brillante) !important;
+    color: var(--acento-brillante) !important;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+}
+
+/* Botones de filtro activos en proyectos.html */
+.btn-outline-dark.active, .btn-dark.active {
+    background-color: var(--acento-brillante) !important;
+    color: var(--bg-principal) !important;
+    border-color: var(--acento-brillante) !important;
+}
+
+/* ==========================================================================
+   6. FORMULARIOS (CONTACTO)
+   ========================================================================== */
+.form-control {
+    background-color: var(--bg-principal) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--texto-claro) !important;
+    border-radius: 8px;
+    padding: 12px !important;
+    transition: var(--transicion);
+}
+
+.form-control:focus {
+    border-color: var(--acento-brillante) !important;
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.3) !important;
+}
+
+/* ==========================================================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: #060a10 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: var(--texto-mutado) !important;
+}
